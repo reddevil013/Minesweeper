@@ -1,4 +1,4 @@
-# minesweeper
+# minesweeper(https://reddevil013.github.io/Minesweeper/)
 A simplified game of minesweeper using JavaScript
 
 This was such a fun one to make as I really enjoyed recursion.
