@@ -77,10 +77,16 @@ easy()
         flags --
         flagsLeft.innerHTML = bombAmount- flags
       }
-      let src = "./media/flag.wav"
-      audio.src =src
-      audio.play();
     }
+    else if (square.classList.contains('flag')) {
+      square.classList.remove('flag')
+      square.innerHTML = ''
+      flags --
+      flagsLeft.innerHTML = bombAmount- flags
+    }
+    let src = "./media/flag.wav"
+    audio.src =src
+    audio.play();
   }
 
   //click on square actions
