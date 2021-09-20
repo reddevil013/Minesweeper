@@ -1,4 +1,5 @@
 # [minesweeper](https://reddevil013.github.io/Minesweeper/)
+[<![](https://github.com/reddevil013/Minesweeper/blob/master/media/Screenshot%20(3).png?raw=true)](https://iamminesweeper.netlify.app/)
 A simplified game of minesweeper using JavaScript
 
 This was such a fun one to make as I really enjoyed recursion.
