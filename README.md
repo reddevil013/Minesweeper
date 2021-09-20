@@ -1,5 +1,5 @@
 # [minesweeper](https://reddevil013.github.io/Minesweeper/)
-[<![](https://github.com/reddevil013/Minesweeper/blob/master/media/Screenshot%20(3).png?raw=true)](https://iamminesweeper.netlify.app/)
+[[](https://github.com/reddevil013/Minesweeper/blob/master/media/Screenshot%20(3).png?raw=true)](https://iamminesweeper.netlify.app/)
 
 
 
