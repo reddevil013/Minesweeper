@@ -6,6 +6,7 @@ let bombAmount = 10
 let flags = 0
 let squares = []
 let isGameOver = false
+let audio = document.createElement('audio')
 
 function createBoard() {
   flagsLeft.innerHTML = bombAmount
