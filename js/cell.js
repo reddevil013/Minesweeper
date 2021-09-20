@@ -3,7 +3,7 @@ const flagsLeft = document.querySelector('#flags-left')
 const result = document.querySelector('#result')
 let width = 10
 let bombAmount = 10
-let flags = 0
+let flags
 let squares
 let isGameOver = false
 let audio = document.querySelector('.ad')
@@ -12,6 +12,7 @@ let audio = document.querySelector('.ad')
 function createBoard() {
   flagsLeft.innerHTML = bombAmount
   squares = []
+  flags = 0
 
   //get shuffled game array with random bombs
   let bombsArray = Array(bombAmount).fill('bomb')
@@ -84,9 +85,6 @@ easy()
 
   //click on square actions
   function click(square) {
-    let src = "./media/space.wav"
-    audio.src =src
-    audio.play();
     let currentId = square.id
     if (isGameOver) return
     if (square.classList.contains('checked') || square.classList.contains('flag')) return
@@ -104,8 +102,12 @@ easy()
         return
       }
       checkSquare(square, currentId)
+      let src = "./media/space.wav"
+      audio.src =src
+      audio.play();
     }
     square.classList.add('checked')
+
   }
 
 
@@ -194,10 +196,11 @@ easy()
         matches ++
       }
       if (matches === bombAmount) {
-        result.innerHTML = 'YOU WIN!'
+        audio.pause
         let src = "./media/win.wav"
         audio.src = src
         audio.play();
+        result.innerHTML = 'YOU WIN!'
         isGameOver = true
       }
     }
@@ -206,7 +209,7 @@ easy()
 
 
 function easy() {
-  bombAmount = 1
+  bombAmount = 10
   while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
