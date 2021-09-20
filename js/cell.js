@@ -4,21 +4,23 @@ const result = document.querySelector('#result')
 let width = 10
 let bombAmount = 10
 let flags = 0
-let squares = []
+let squares
 let isGameOver = false
-let audio = document.createElement('audio')
+let audio = document.querySelector('.ad')
 
+// creating board
 function createBoard() {
   flagsLeft.innerHTML = bombAmount
+  squares = []
 
   //get shuffled game array with random bombs
-  const bombsArray = Array(bombAmount).fill('bomb')
-  const emptyArray = Array(width*width - bombAmount).fill('valid')
-  const gameArray = emptyArray.concat(bombsArray)
-  const shuffledArray = gameArray.sort(() => Math.random() -0.5)
+  let bombsArray = Array(bombAmount).fill('bomb')
+  let emptyArray = Array(width*width - bombAmount).fill('valid')
+  let gameArray = emptyArray.concat(bombsArray)
+  let shuffledArray = gameArray.sort(() => Math.random() -0.5)
 
   for(let i = 0; i < width*width; i++) {
-    const square = document.createElement('div')
+    let square = document.createElement('div')
     square.setAttribute('id', i)
     square.classList.add(shuffledArray[i])
     grid.appendChild(square)
@@ -74,11 +76,17 @@ easy()
         flags --
         flagsLeft.innerHTML = bombAmount- flags
       }
+      let src = "./media/flag.wav"
+      audio.src =src
+      audio.play();
     }
   }
 
   //click on square actions
   function click(square) {
+    let src = "./media/space.wav"
+    audio.src =src
+    audio.play();
     let currentId = square.id
     if (isGameOver) return
     if (square.classList.contains('checked') || square.classList.contains('flag')) return
@@ -161,6 +169,9 @@ easy()
   //game over
   function gameOver(square) {
     result.innerHTML = 'BOOM! Game Over!'
+    let src = "./media/boom.wav"
+    audio.src =src
+    audio.play();
     isGameOver = true
 
     //show ALL the bombs
@@ -184,6 +195,9 @@ easy()
       }
       if (matches === bombAmount) {
         result.innerHTML = 'YOU WIN!'
+        let src = "./media/win.wav"
+        audio.src = src
+        audio.play();
         isGameOver = true
       }
     }
@@ -192,11 +206,12 @@ easy()
 
 
 function easy() {
-  bombAmount = 10
+  bombAmount = 1
   while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
   createBoard()
+  isGameOver = false
   result.innerHTML = 'Easy'
 
 }
@@ -206,6 +221,7 @@ function medium() {
         grid.removeChild(grid.firstChild);
     }
   createBoard()
+  isGameOver = false
   result.innerHTML = 'Medium'
 }
 function hard() {
@@ -214,5 +230,6 @@ function hard() {
         grid.removeChild(grid.firstChild);
     }
   createBoard()
+  isGameOver = false
   result.innerHTML = 'Hard'
 }
