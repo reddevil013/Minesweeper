@@ -84,8 +84,7 @@ easy()
       flags --
       flagsLeft.innerHTML = bombAmount- flags
     }
-    let src = "./media/flag.wav"
-    audio.src =src
+    let audio = document.getElementById('flag')
     audio.play();
   }
 
@@ -98,6 +97,8 @@ easy()
       gameOver(square)
     } else {
       let total = square.getAttribute('data')
+      let audio = document.getElementById('space')
+      audio.play();
       if (total !=0) {
         square.classList.add('checked')
         if (total == 1) square.classList.add('one')
@@ -108,9 +109,6 @@ easy()
         return
       }
       checkSquare(square, currentId)
-      let src = "./media/space.wav"
-      audio.src =src
-      audio.play();
     }
     square.classList.add('checked')
 
@@ -177,8 +175,7 @@ easy()
   //game over
   function gameOver(square) {
     result.innerHTML = 'BOOM! Game Over!'
-    let src = "./media/boom.wav"
-    audio.src =src
+    let audio = document.getElementById('boom')
     audio.play();
     isGameOver = true
 
@@ -202,11 +199,9 @@ easy()
         matches ++
       }
       if (matches === bombAmount) {
-        audio.pause
-        let src = "./media/win.wav"
-        audio.src = src
-        audio.play();
         result.innerHTML = 'YOU WIN!'
+        let audio = document.getElementById('win')
+        audio.play();
         isGameOver = true
       }
     }
