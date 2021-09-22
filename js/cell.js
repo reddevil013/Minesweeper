@@ -6,7 +6,7 @@ let bombAmount = 10
 let flags
 let squares
 let isGameOver = false
-let audio = document.querySelector('.ad')
+
 
 // creating board
 function createBoard() {
@@ -58,6 +58,7 @@ function createBoard() {
     }
   }
 }
+
 easy()
 
 
